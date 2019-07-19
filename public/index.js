@@ -55,8 +55,15 @@ var options = {
             tools: {
                 pan: false,
                 reset: false
-            },            
+            },
             autoSelected: 'zoom'
+        },
+        dropShadow: {
+            enabled: true,
+            top: 0,
+            left: 0,
+            blur: 3,
+            opacity: 0.5
         }
     },
     dataLabels: {

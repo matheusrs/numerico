@@ -30,7 +30,7 @@
                             <span>Cordas</span>
                         </a>
                     </li>
-                    <li class="is-active">
+                    <li>
                         <a href="/secantes.html">
                             <span>Secantes</span>
                         </a>
@@ -55,11 +55,11 @@
                             <span>Simpson 3/8</span>
                         </a>
                     </li>
-                     <li>
+                    <li class="is-active">
                         <a href="/euler.html">
                             <span>Euler</span>
                         </a>
-                    </li> 
+                    </li>
                 </ul>
             </div>
 
@@ -72,16 +72,18 @@
                 <div style="padding: 0px 20px 0px 20px">
                     <div class="field is-horizontal" style="margin-top: 20px">
                         <div class="field-label is-normal">
-                            <label class="label">Função</label>
+                            <label class="label">F(x,y)</label>
                         </div>
                         <div class="field-body">
                             <div class="field is-expanded">
-                                <div class="field">
-                                    <p id="input_function_x" class="control is-expanded has-icons-left">
-                                        <input class="input" type="text" placeholder="x^2" id="function_x">
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-square-root-alt"></i>
-                                        </span>
+                                <div class="field has-addons">
+                                    <p class="control">
+                                        <a class="button is-static">
+                                            y'
+                                        </a>
+                                    </p>
+                                    <p class="control is-expanded">
+                                        <input class="input" type="text" placeholder="y^2" id="function_y">
                                     </p>
                                 </div>
                                 <p id="btnRationalize" style="cursor: pointer">Racionalizar</p>
@@ -90,7 +92,7 @@
                     </div>
                     <div class="field is-horizontal">
                         <div class="field-label is-normal">
-                            <label class="label">Intervalo Inicial</label>
+                            <label class="label">Condição Inicial</label>
                         </div>
                         <div class="field-body">
                             <div class="field is-expanded">
@@ -101,42 +103,72 @@
                                         </a>
                                     </p>
                                     <p class="control is-expanded">
-                                        <input class="input" id="point_x0" placeholder="0">
+                                        <input class="input" id="point_x0">
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">f(x0)</label>
+                        </div>
+                        <div class="field-body">
                             <div class="field is-expanded">
                                 <div class="field has-addons">
                                     <p class="control">
                                         <a class="button is-static">
-                                            x1
+                                            y0
                                         </a>
                                     </p>
                                     <p class="control is-expanded">
-                                        <input class="input" id="point_x1" placeholder="100">
+                                        <input class="input" id="point_y0">
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">Objetivo</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field is-expanded">
+                                    <div class="field has-addons">
+                                        <p class="control">
+                                            <a class="button is-static">
+                                                xn
+                                            </a>
+                                        </p>
+                                        <p class="control is-expanded">
+                                            <input class="input" id="point_xn">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="field is-horizontal">
                         <div class="field-label is-normal">
-                            <label class="label">Máximo de Iterações</label>
+                            <label class="label">Número de Partições</label>
                         </div>
                         <div class="field-body">
-                            <div class="field">
-                                <p class="control is-expanded has-icons-left">
-                                    <input class="input" type="text" placeholder="N" id="n_times">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-ruler-horizontal"></i>
-                                    </span>
-                                </p>
+                            <div class="field is-expanded">
+                                <div class="field has-addons">
+                                    <p class="control">
+                                        <a class="button is-static">
+                                            n
+                                        </a>
+                                    </p>
+                                    <p class="control is-expanded">
+                                        <input class="input" type="text" id="n_times">
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="field is-horizontal">
+                    <!-- <div class="field is-horizontal">
                         <div class="field-label is-normal">
-                            <label class="label">Margem de Erro (ϵ)</label>
+                            <label class="label">Precisão</label>
                         </div>
                         <div class="field-body">
                             <div class="field is-expanded">
@@ -149,7 +181,7 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="field is-grouped is-grouped-right" style="margin: 20px">
                         <!-- <p class="control">
                         <a class="button is-light" id="btnClear">
@@ -168,15 +200,14 @@
             </div>
         </div>
     </section>
-    
-    <script src="components/accordion/vanilla-js-accordion.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="components/accordion/vanilla-js-accordion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/dist/js/bulma-extensions.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/accordion@3.0.2/src/accordion.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/mathjs@6.0.3/dist/math.min.js"></script>
     <script src="index.js"></script>
-    <script src="metodos/secantes.js"></script>
+    <script src="metodos/euler.js"></script>
 </body>
 
 </html>
