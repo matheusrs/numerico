@@ -45,7 +45,6 @@ var evaluate = function (fn, x) {
     return math.bignumber(math.evaluate(fn, scope))
 }
 var submit = function () {
-    btnProcess.classList.add('is-loading')
     var dados_y = []
     var dados_x = []
 
@@ -75,7 +74,7 @@ var submit = function () {
 
     var nTimes = document.querySelector("#n_times")
     if (!nTimes.value) {
-        return alert('N inválido')
+        return alert('n inválido')
     }
     var n_times = nTimes.value
 
@@ -101,6 +100,5 @@ var submit = function () {
         n += 1
     }
     console.log(x.toString())
-    btnProcess.classList.remove('is-loading')
 }
 btn.addEventListener("click", submit);

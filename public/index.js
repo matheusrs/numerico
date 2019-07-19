@@ -54,18 +54,7 @@ var options = {
         toolbar: {
             tools: {
                 pan: false,
-                reset: false,
-                // customIcons: [{
-                //     icon: '<img src="/static/icons/restore.png" width="20">',
-                //     index: 3,
-                //     title: 'tooltip of the icon',
-                //     class: 'custom-icon',
-                //     click: function (e) {
-                //         chart.updateOptions({
-                //             series: e.view.chart.series
-                //         })
-                //     },
-                // }]
+                reset: false
             },            
             autoSelected: 'zoom'
         }

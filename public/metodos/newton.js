@@ -7,12 +7,9 @@ var btnDerivate = document.querySelector("#btnDerivate")
 var derivate = function () {
     var input_fn = document.querySelector("#function_x")
     var input_dfn = document.querySelector("#function_dx")
-    //var inputLoading = document.querySelector("#input_function_dx")
-    //inputLoading.classList.add('is-loading')
     var fn = input_fn.value
     const derivada = math.derivative(fn.toString(), 'x')
     input_dfn.value = derivada.toString()
-    //inputLoading.classList.remove('is-loading')
 }
 btnDerivate.addEventListener('click', derivate)
 //#########################################################
@@ -42,7 +39,6 @@ var evaluate = function (fn, x) {
     return math.bignumber(math.evaluate(fn, scope))
 }
 var submit = function () {
-    btnProcess.classList.add('is-loading')
     var dados_y = []
     var dados_x = []
 
@@ -66,7 +62,7 @@ var submit = function () {
 
     var nTimes = document.querySelector("#n_times")
     if (!nTimes.value) {
-        return alert('N inválido')
+        return alert('n inválido')
     }
     var n_times = nTimes.value
 
@@ -112,6 +108,5 @@ var submit = function () {
         n += 1
     }
     console.log(xn.toString())
-    btnProcess.classList.remove('is-loading')
 }
 btn.addEventListener("click", submit);

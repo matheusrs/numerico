@@ -8,14 +8,11 @@ var derivate = function () {
     var input_fn = document.querySelector("#function_x")
     var input_dfn = document.querySelector("#function_dx")
     var input_d2fn = document.querySelector("#function_d2x")
-    //var inputLoading = document.querySelector("#input_function_x")
-    //inputLoading.classList.add('is-loading')
     var fn = input_fn.value
     const derivada = math.derivative(fn.toString(), 'x')
     const derivada2 = math.derivative(derivada.toString(), 'x')
     input_dfn.value = derivada.toString()
     input_d2fn.value = derivada2.toString()
-    //inputLoading.classList.remove('is-loading')
 }
 btnDerivate.addEventListener('click', derivate)
 var btnDerivate2 = document.querySelector("#btnDerivate2")
@@ -27,12 +24,9 @@ btnDerivate2.addEventListener('click', derivate)
 var derivate = function () {
     var input_dfn = document.querySelector("#function_dx")
     var input_d2fn = document.querySelector("#function_d2x")
-    //var inputLoading = document.querySelector("#input_function_d2x")
-    //inputLoading.classList.add('is-loading')
     var dfn = input_dfn.value
     const derivada = math.derivative(dfn.toString(), 'x')
     input_d2fn.value = derivada.toString()
-    //inputLoading.classList.remove('is-loading')
 }
 btnDerivate2.addEventListener('click', derivate)
 //#########################################################
@@ -62,7 +56,6 @@ var evaluate = function (fn, x) {
     return math.bignumber(math.evaluate(fn, scope))
 }
 var submit = function () {
-    btnProcess.classList.add('is-loading')
     var dados_y = []
     var dados_x = []
 
@@ -86,7 +79,7 @@ var submit = function () {
 
     var nTimes = document.querySelector("#n_times")
     if (!nTimes.value) {
-        return alert('N inválido')
+        return alert('n inválido')
     }
     var n_times = nTimes.value
 
@@ -122,6 +115,5 @@ var submit = function () {
         n += 1
     }
     console.log(medio)
-    btnProcess.classList.remove('is-loading')
 }
 btn.addEventListener("click", submit);
