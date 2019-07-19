@@ -1,0 +1,22 @@
+.js-Accordion {
+    margin: 0 auto;
+}
+
+.js-Accordion-title {
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-top: 0;
+    cursor: pointer;
+    display: block;
+    padding: 1em .5em;
+    width: 100%;
+}
+
+.js-Accordion-content {
+    border: 1px solid #ccc;
+    border-top: 0;
+    height: 0;
+    line-height: 1.5;
+    overflow: hidden;
+    transition: all .25s linear;
+}

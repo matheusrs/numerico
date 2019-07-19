@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Métodos Num</title>
+
+    <link rel="stylesheet" href="components/accordion/vanilla-js-accordion.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                Algoritmos para Encontrar Raízes
+            </h1>
+            <div class="tabs is-centered is-boxed">
+                <ul>
+                    <li>
+                        <a href="/bisseccao.html">
+                            <span>Bisseção</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cordas.html">
+                            <span>Cordas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/secantes.html">
+                            <span>Secantes</span>
+                        </a>
+                    </li>
+                    <li class="is-active">
+                        <a href="/newton.html">
+                            <span>Newton</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/ponto_fixo.html">
+                            <span>Ponto Fixo</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="js-Accordion" id="accordion">
+                <button>Parâmetros
+                    <!-- <span class="icon">
+                        <i class="ion ion-arrow-dropdown"></i>
+                    </span> -->
+                </button>
+                <div style="padding: 0px 20px 0px 20px">
+                    <div class="field is-horizontal" style="margin-top: 20px">
+                        <div class="field-label is-normal">
+                            <label class="label">Função</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-expanded">
+                                <div class="field">
+                                    <p id="input_function_x" class="control is-expanded has-icons-left">
+                                        <input class="input" type="text" placeholder="x^2" id="function_x">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-square-root-alt"></i>
+                                        </span>
+                                    </p>
+                                </div>
+                                <p id="btnRationalize" style="cursor: pointer">Racionalizar</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Derivada da Função</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <p id="input_function_dx" class="control is-expanded has-icons-left">
+                                    <input class="input" type="text" placeholder="2x" id="function_dx">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-square-root-alt"></i>
+                                    </span>
+                                </p>
+                                <p id="btnDerivate" style="cursor: pointer">Preencher</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Solução Inicial</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-expanded">
+                                <div class="field has-addons">
+                                    <p class="control">
+                                        <a class="button is-static">
+                                            x0
+                                        </a>
+                                    </p>
+                                    <p class="control is-expanded">
+                                        <input class="input" id="point_x0" placeholder="0">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Máximo de Iterações</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="control is-expanded has-icons-left">
+                                    <input class="input" type="text" placeholder="N" id="n_times">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-ruler-horizontal"></i>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Margem de Erro (ϵ)</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-expanded">
+                                <p class="control">
+                                    <input class="input" id="labelEps" value="0.00001">
+                                </p>
+                                <p class="help">
+                                    <input class="slider is-fullwidth is-large is-danger is-circle" step="1" min="1"
+                                        max="10" value="5" type="range" id="margem_erro" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-grouped is-grouped-right" style="margin: 20px">
+                        <!-- <p class="control">
+                        <a class="button is-light" id="btnClear">
+                            Limpar
+                        </a>
+                    </p> -->
+                        <p class="control">
+                            <a class="button is-primary" id="btnProcess" style="width: 300px">
+                                Iniciar
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="chart">
+            </div>
+        </div>
+    </section>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="components/accordion/vanilla-js-accordion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/dist/js/bulma-extensions.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/accordion@3.0.2/src/accordion.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@6.0.3/dist/math.min.js"></script>
+    <script src="index.js"></script>
+    <script src="metodos/newton.js"></script>
+</body>
+
+</html>
